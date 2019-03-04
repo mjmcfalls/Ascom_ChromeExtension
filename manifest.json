@@ -2,9 +2,11 @@
     "name": "Unite Context Clear all button",
     "version": "1.0",
     "description": "Add a button to Unite Context to clear all tokens.",
+    "options_page": "options.html",
     "permissions": [
         "activeTab",
         "tabs",
+        "storage",
         "<all_urls>"
     ],
     "background": {
