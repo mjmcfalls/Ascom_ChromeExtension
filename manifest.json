@@ -1,6 +1,28 @@
 {
-    "name": "Getting Started Example",
+    "name": "Unite Context Clear all button",
     "version": "1.0",
-    "description": "Build an Extension!",
+    "description": "Add a button to Unite Context to clear all tokens.",
+    "permissions": [
+        "activeTab",
+        "tabs",
+        "<all_urls>"
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": false
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
     "manifest_version": 2
 }
