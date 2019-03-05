@@ -3,20 +3,76 @@
 
 <head>
     <title>Ascom Unite Context - Clear All Tokens options</title>
+    <style>
+        .title {
+            font-size: 1.25em;
+            font-weight: 500;
+        }
 
+        .labelText {
+            font-size: 1.25em;
+        }
+
+        /* .formul {
+            list-style-type: none;
+        } */
+
+        .status {
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+
+        #formdiv ul ul {
+            list-style: none;
+        }
+
+        #formdiv ul {
+            list-style: none;
+        }
+    </style>
 </head>
 
 <body>
-    <p><span>Options</span></p>
-    <div id="status"></div>
-    <label for="baseurl">Base Url: </label>
-    <input type="text" name="baseurl" id="baseurl"><br />
-    <label for="autoReload">Auto Reload:
-        <input type="checkbox" id="autoReload" name="autoReload" value="True"></label><br />
-    <!-- <input type="submit"> -->
 
+    <div id="formdiv">
+        <ul class="formul">
 
-    <button id="saveBtn">Save</button>
+            <li><span class="title">Options</span></li>
+            <li>&nbsp;</li>
+            <li>
+                <label for="baseurl" class="labelText">Base Url:&nbsp;&nbsp;
+                    <input type="text" name="baseurl" id="baseurl">
+                </label>
+            </li>
+            <li>
+                <label for="autoReload" class="labelText">Auto Reload:&nbsp;&nbsp;
+                    <input type="checkbox" id="autoReload" name="autoReload">
+                </label>
+            </li>
+            <label class="labelText">Disable Warnings:&nbsp;&nbsp;
+                <!-- <input type="checkbox" id="noWarn" name="noWarn"> -->
+                <ul>
+                    <li><input type="radio" id="allWarn" name="warnChoice" value="2"><label for="allWarn">All
+                            Warnings</label></li>
+                    <li><input type="radio" id="confirmWarn" name="warnChoice" value="1"><label
+                            for="confirmWarn">Confirmations
+                            Only</label></li>
+                    <li><input type="radio" id="noWarn" name="warnChoice" value="0"><label for="noWarn">No
+                            Warnings</label>
+                    </li>
+                </ul>
+
+            </label>
+            </li>
+            <li>&nbsp;</li>
+            <li>
+                <button id="saveBtn">Save</button> <button id="resetBtn">Reset</button>
+            </li>
+            <li>
+                <div id="status" class="status"></div>
+            </li>
+        </ul>
+    </div>
 </body>
 <script type="text/javascript" src="options.js"></script>
 

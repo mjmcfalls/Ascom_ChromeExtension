@@ -38,31 +38,51 @@ function getUpdateUrl() {
 }
 
 function clearTokens() {
+    // console.log("noWarn: " + options.noWarn);
     tbody = document.getElementsByClassName("table sortable")[0].getElementsByTagName('tbody')[0];
     urls = getTokenUrls();
-    r = confirm("This will clear all tokens and log the user out!\n\nAre you sure?");
+    if (options.noWarn == 0) {
+        console.log("Warnings disabled!");
+        r = true;
+    }
+    else {
+        r = confirm("This will clear all tokens and log the user out!\n\nAre you sure?");
+    }
+
     if (r) {
         var xhttp = new XMLHttpRequest();
         for (i = 0; i < urls.length; i++) {
-            // console.log("URLS: " + urls[i]);
+            console.log("URLS: " + urls[i]);
             xhttp.open("GET", urls[i], true);
             xhttp.send();
         }
         if (options.reload) {
-            alert("All tokens cleared!\nPage will reload now.");
+            if (options.noWarn != 2) {
+                console.log("Warnings disabled - Page will auto reload.");
+            }
+            else {
+                alert("All tokens cleared!\nPage will reload now.");
+            }
+
             location.reload()
         }
         else {
-            alert("All tokens cleared!\nPlease click update or reload the page to see changes.");
+            if (options.noWarn != 2) {
+                console.log("Warnings disabled - Please reload page.");
+            }
+            else {
+                alert("All tokens cleared!\nPlease click update or reload the page to see changes.");
+            }
         }
     }
 }
 
 chrome.storage.sync.get({
     baseUrl: "",
-    autoReload: false
+    autoReload: false,
+    noWarn: false,
 }, function (items) {
-    options = { url: items.baseUrl, reload: items.autoReload };
+    options = { url: items.baseUrl, reload: items.autoReload, noWarn: items.noWarn };
 });
 
 authTbl = document.getElementsByClassName("table sortable")
