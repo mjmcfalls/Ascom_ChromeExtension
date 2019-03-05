@@ -44,7 +44,9 @@ function clearTokens() {
     if (r) {
         var xhttp = new XMLHttpRequest();
         for (i = 0; i < urls.length; i++) {
-            console.log("URLS: " + urls[i]);
+            // console.log("URLS: " + urls[i]);
+            xhttp.open("GET", urls[i], true);
+            xhttp.send();
         }
         if (options.reload) {
             alert("All tokens cleared!\nPage will reload now.");
