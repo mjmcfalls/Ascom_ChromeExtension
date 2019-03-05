@@ -30,12 +30,7 @@ function insertClearButtonRow(tbody) {
     }
     cells[0].appendChild(a);
 }
-function getUpdateUrl() {
-    btnPurple = document.getElementsByClassName("button purple")
-    if (btnPurple.length == 1) {
-        btnPurple[0].h
-    }
-}
+
 
 function clearTokens() {
     // console.log("noWarn: " + options.noWarn);
@@ -63,7 +58,6 @@ function clearTokens() {
             else {
                 alert("All tokens cleared!\nPage will reload now.");
             }
-
             location.reload()
         }
         else {
