@@ -14,3 +14,13 @@ Two other options are provided to customize the experience:
   * Confirmations Only - Provides confirmation prompts to verify if all the tokens should be deleted.  
   * No Warnings - No confirmation prompts or prompts relating to page refreshes. 
 
+Once configured, the button will appear under the Authorized Session section in the user profile. If there are no authorized sessions, the button will not appear.
+
+
+## Images 
+![alt text][example]
+
+[example]: clearAllButton.png "Example of button in web page"
+
+## Notes
+* Only validated on Unite Context 10.4.1.5
