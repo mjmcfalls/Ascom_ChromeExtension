@@ -21,7 +21,7 @@ Once configured, the button will appear under the Authorized Session section in 
 Below is an example of the added button with three tokens above it.
 ![alt text][example]
 
-[example]: clearAllButton.png "Example of button in web page"
+[example]: img/clearAllButton.png "Example of button in web page"
 
 ## Notes
 * Only validated on Unite Context 10.4.1.5

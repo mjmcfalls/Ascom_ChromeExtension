@@ -14,7 +14,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, info, tab) {
                 chrome.tabs.sendMessage(tabs[0].id, { ping: true }, function (response) {
                     if (response.pong) {
                         chrome.tabs.executeScript(tab.id, {
-                            file: 'clearButton.js'
+                            file: 'js/clearButton.js'
                         });
                     }
                 });
