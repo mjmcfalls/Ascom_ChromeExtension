@@ -1,3 +1,4 @@
+// Get the value of the radio button set in options.html
 function getRadioBtnValue() {
     radioBtns = document.getElementsByName("warnChoice");
     for (i = 0; i < radioBtns.length; i++) {
@@ -7,7 +8,8 @@ function getRadioBtnValue() {
     }
 }
 
-function setRadioBtnActive(noWarn) {
+// Retreive the rdaio button Id associated with the value from noWarn.
+function getRadioBtnId(noWarn) {
     var radioBtns = document.getElementsByName("warnChoice");
     for (i = 0; i < radioBtns.length; i++) {
         if (radioBtns[i].value == noWarn) {
@@ -67,9 +69,10 @@ function restore_options() {
         document.getElementById('baseurl').value = items.baseUrl;
         document.getElementById('autoReload').checked = items.autoReload;
         var radioBtns = document.getElementsByName("warnChoice");
-        document.getElementById(setRadioBtnActive(items.noWarn)).checked = true;
+        document.getElementById(getRadioBtnId(items.noWarn)).checked = true;
     });
 }
+
 document.addEventListener('DOMContentLoaded', restore_options);
 var saveBtn = document.getElementById('saveBtn');
 var resetBtn = document.getElementById("resetBtn");

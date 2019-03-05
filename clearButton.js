@@ -6,7 +6,6 @@ function getTokenUrls() {
     for (i = 0; i <= a.length; i++) {
         if (typeof a[i] !== 'undefined') {
             if (reRevokeToken.test(a[i].href)) {
-                // console.log(a[i]);
                 tokenHrefs.push(a[i].href);
             }
         }
@@ -33,7 +32,6 @@ function insertClearButtonRow(tbody) {
 
 
 function clearTokens() {
-    // console.log("noWarn: " + options.noWarn);
     tbody = document.getElementsByClassName("table sortable")[0].getElementsByTagName('tbody')[0];
     urls = getTokenUrls();
     if (options.noWarn == 0) {
