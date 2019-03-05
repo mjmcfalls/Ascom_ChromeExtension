@@ -1,5 +1,5 @@
 # Ascom Unite Context Chrome Extension
-This extension is designed to add a clear all button to the Ascom Unite Context administration dashboard.  This will allow clearing all the tokens with the fewest number of actions, instead of the built in process, which requires clearing tokens one at a time, and having to edit the user profile each time to reach the tokens.
+This extension is designed to add a clear all button to the Ascom Unite Context administration dashboard.  This will allow clearing all the tokens with the fewest number of actions, instead of the built in process, which requires clearing tokens one at a time, and having to edit the user profile each time to reach the tokens. 
 
 ## Installation
 Currently only available as a local extension in developer mode.
