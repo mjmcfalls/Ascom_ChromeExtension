@@ -13,6 +13,13 @@ function getTokenUrls() {
     return tokenHrefs;
 }
 
+function getUpdateButton() {
+    updateUsrBtns = document.getElementsByName("updateUser")
+    if (updateUsrBtns.length == 1) {
+        return updateUsrBtns;
+    }
+}
+
 function insertClearButtonRow(tbody) {
     a = document.createElement('a');
     span = document.createElement("span");
@@ -32,6 +39,7 @@ function insertClearButtonRow(tbody) {
 
 
 function clearTokens() {
+    updateBtn = getUpdateButton();
     tbody = document.getElementsByClassName("table sortable")[0].getElementsByTagName('tbody')[0];
     urls = getTokenUrls();
     if (options.noWarn == 0) {
@@ -56,14 +64,15 @@ function clearTokens() {
             else {
                 alert("All tokens cleared!\nPage will reload now.");
             }
-            location.reload()
+            // location.reload()
+            updateBtn.click();
         }
         else {
             if (options.noWarn != 2) {
-                console.log("Warnings disabled - Please reload page.");
+                console.log("Warnings disabled - Please click Update.");
             }
             else {
-                alert("All tokens cleared!\nPlease click update or reload the page to see changes.");
+                alert("All tokens cleared!\nPlease click Update.");
             }
         }
     }
