@@ -26,5 +26,6 @@
             ]
         }
     ],
+    "web_accessible_resources": ["imgs/check.svg"],
     "manifest_version": 2
 }
