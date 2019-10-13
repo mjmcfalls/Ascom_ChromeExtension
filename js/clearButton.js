@@ -14,23 +14,12 @@ function getTokenUrls() {
 }
 
 function setStatusOnToken(tbody, href) {
-
-    console.log("setStatusOnToken", href);
-    console.log(tbody);
+    // console.log("setStatusOnToken", href);
     re = new RegExp(href);
-    // console.log("href: ", href);
     for (var i = 0, row; row = tbody.rows[i]; i++) {
-        //iterate through rows
-        //rows would be accessed using the "row" variable assigned in the for loop
-        //         console.log(row);
         for (var j = 0, col; col = row.cells[j]; j++) {
-            //iterate through columns
-            //columns would be accessed using the "col" variable assigned in the for loop
             if (col.children.length > 0) {
-                // console.log("", col.children);
                 if (col.children[0].tagName === "A") {
-                    // console.log("Children[0]: ", col.children[0].href)
-                    
                     if (col.children[0].href === href) {
                         console.log("Matches: ", col.children[0].href);
                         col.innerHTML ='';
@@ -41,16 +30,6 @@ function setStatusOnToken(tbody, href) {
             }
         }
     }
-    // a = document.getElementsByTagName("a");
-    // for (i = 0; i <= a.length; i++) {
-    //     if (typeof a[i] !== 'undefined') {
-    //         re = new RegExp(a[i].href);
-    //         console.log(a[i].href);
-    //         if (re.test(href)) {
-    //             console.log("Found matching url:", href);
-    //         }
-    //     }
-    // }
 }
 
 function getUpdateButton() {
@@ -94,37 +73,33 @@ function clearTokens() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                // Typical action to be performed when the document is ready:
-                //    document.getElementById("demo").innerHTML = xhttp.responseText;
-                // console.log("", xhttp);
-                // console.log("Url: ", xhttp.url);
                 setStatusOnToken(tbody, xhttp.url);
             }
         };
         for (i = 0; i < urls.length; i++) {
             console.log("URLS: " + urls[i]);
             xhttp.url = urls[i];
-            xhttp.open("GET", urls[i], true);
+            xhttp.open("GET", urls[i], false);
             xhttp.send();
         }
-        // if (options.reload) {
-        //     if (options.noWarn != 2) {
-        //         console.log("Warnings disabled - Page will auto reload.");
-        //     }
-        //     else {
-        //         alert("All tokens cleared!\nPage will reload now.");
-        //     }
-        //     // location.reload()
-        //     updateBtn.click();
-        // }
-        // else {
-        //     if (options.noWarn != 2) {
-        //         console.log("Warnings disabled - Please click Update.");
-        //     }
-        //     else {
-        //         alert("All tokens cleared!\nPlease click Update.");
-        //     }
-        // }
+        if (options.reload) {
+            if (options.noWarn != 2) {
+                console.log("Warnings disabled - Page will auto reload.");
+            }
+            else {
+                alert("All tokens cleared!\nPage will reload now.");
+            }
+            // location.reload()
+            updateBtn.click();
+        }
+        else {
+            if (options.noWarn != 2) {
+                console.log("Warnings disabled - Please click Update.");
+            }
+            else {
+                alert("All tokens cleared!\nPlease click Update.");
+            }
+        }
     }
 }
 
